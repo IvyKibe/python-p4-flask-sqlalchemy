@@ -1,5 +1,6 @@
+# app/models.py
+
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
 
 db = SQLAlchemy()
 
@@ -25,9 +26,3 @@ class Pet(db.Model):
 
     def __repr__(self):
         return f'<Pet {self.name}, {self.species}>'
-    
-metadata = MetaData(naming_convention={
-    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
-})
-
-db = SQLAlchemy(metadata=metadata)
